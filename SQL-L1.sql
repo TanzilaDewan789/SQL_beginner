@@ -100,3 +100,4 @@ FROM Stu_location JOIN city
 ON Stu_location.city_id= city.id;
 
 
+
