@@ -42,3 +42,61 @@ SELECT * FROM team;
 SHOW DATABASES;
 SHOW TABLES;
 DROP DATABASE IF EXISTS University_game;
+
+#Practice question
+CREATE DATABASE XYZ;
+USE XYZ;
+
+CREATE TABLE employee(
+id INT PRIMARY KEY,
+name VARCHAR (50),
+salary INT NOT NULL);
+
+INSERT INTO employee (id, name, salary)
+VALUES
+(1,'Adam', 25000),
+(2,'bob', 35000),
+(3,'casey', 50000);
+
+SELECT * FROM employee;
+
+# keys - primary key & foreign key
+CREATE TABLE city (
+id INT PRIMARY KEY,
+city_name VARCHAR (50));
+
+INSERT INTO city (id, city_name)
+VALUES
+(1,'dhaka'),
+(2,'shylet'),
+(3,'manikganj');
+
+SELECT * FROM city;
+
+CREATE TABLE Stu_location(
+id INT PRIMARY KEY,
+name VARCHAR (50),
+city_id INT,
+FOREIGN KEY (city_id) REFERENCES city (id)
+);
+
+INSERT INTO Stu_location (id, name, city_id)
+VALUES
+(101,'A',1),
+(102,'B',2),
+(103,'C',3),
+(104,'D',2);
+
+SELECT * FROM Stu_location;
+
+SELECT 
+Stu_location.id,
+Stu_location.name,
+Stu_location.city_id,
+
+city.city_name
+
+FROM Stu_location JOIN city
+ON Stu_location.city_id= city.id;
+
+
