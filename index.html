@@ -126,6 +126,26 @@
         </p>
     </div>
 
+
+            <div class="section">
+        <p class="question">CONSTRAINTS</p>
+        <p class="answer">
+           1.NOT NULL: column can not have null values <br><br>
+           2.UNIQUE: All values should be different <br><br>
+           3.PRIMARY KEY: It is a column in a table which uniquely identifies each row and it should be NOT NULL <br><br>
+           CREATE TABLE student ( <br>
+           id INT PRIMARY KEY, <BR>
+           name VARCHAR (50)</BR> <BR>
+           </BR>    ); <br><br>
+           4.FOREIGN KEY: It is a column and a set of column in a table which refers to PRIMARY KEY in another tables. It can have NULL VALUES and can have duplicates values. <br><br>
+           CREATE TABLE student ( <br>
+           city_id INT PRIMARY KEY,<br>
+           FOREIGN KEY (city_id) REFERENCES city (id) <br>
+           ) <br><br>
+           5.DEFAULT: Set the default values of the column <br><br>
+           6.CHECK: It can limit the values allowed in the column.
+        </p>
+    </div>
 </div>
 
 </body>
