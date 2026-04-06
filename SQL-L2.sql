@@ -68,3 +68,32 @@ WHERE CITY IN ('dhaka', 'manikganj');
 #NOT IN: to neglate the given condition
 SELECT * FROM student 
 WHERE city NOT IN ('dhaka','manikganj');
+
+#LIMIT :set an upper limit on number of rows that values to be returned.
+SELECT * FROM student
+LIMIT 3;
+
+SELECT * FROM student
+WHERE marks > 80
+LIMIT 3;
+
+#ORDER BY 
+SELECT * FROM student 
+ORDER BY city;
+
+SELECT * FROM student
+ORDER BY marks DESC;
+
+#show 1st 3 student
+SELECT * FROM student
+ORDER BY marks DESC
+LIMIT 3;
+
+#AGGREGATED FUNCTION - COUNT(), MAX(), MIN(), SUM(), AVG()
+SELECT COUNT(city) FROM student;
+SELECT MIN(marks)FROM student;
+SELECT AVG(marks) FROM student;
+
+#GROUP BY 
+
+
