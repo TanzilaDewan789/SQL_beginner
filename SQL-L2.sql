@@ -95,5 +95,59 @@ SELECT MIN(marks)FROM student;
 SELECT AVG(marks) FROM student;
 
 #GROUP BY 
+SELECT city 
+FROM student
+GROUP BY city;
 
+SELECT city, COUNT(name)
+FROM student
+GROUP BY city;
 
+SELECT city, name, COUNT(name)
+FROM student 
+GROUP BY city, name; 
+
+SELECT city, AVG(marks)
+FROM student
+GROUP BY city;
+
+SELECT city, AVG(marks)
+FROM student
+GROUP BY city
+ORDER BY city ASC; 
+
+SELECT city, AVG (marks) 
+FROM student
+GROUP BY city
+ORDER BY AVG (marks)  DESC;
+
+SELECT grade, COUNT(rollno) 
+FROM student
+GROUP BY grade 
+ORDER BY grade;
+
+#NEW TABLE FOR PRACTICE QUESTION
+CREATE TABLE payment (
+    customer_id INT PRIMARY KEY,
+    customer VARCHAR(50),
+    mode VARCHAR(20),
+    city VARCHAR(50)
+);
+
+INSERT INTO payment (customer_id, customer, mode, city) VALUES
+(101, 'Olivia Barrett', 'Netbanking', 'Portland'),
+(102, 'Ethan Sinclair', 'Credit Card', 'Miami'),
+(103, 'Maya Hernandez', 'Credit Card', 'Seattle'),
+(104, 'Liam Donovan', 'Netbanking', 'Denver'),
+(105, 'Sophia Nguyen', 'Credit Card', 'New Orleans'),
+(106, 'Caleb Foster', 'Debit Card', 'Minneapolis'),
+(107, 'Ava Patel', 'Debit Card', 'Phoenix'),
+(108, 'Lucas Carter', 'Netbanking', 'Boston'),
+(109, 'Isabella Martinez', 'Netbanking', 'Nashville'),
+(110, 'Jackson Brooks', 'Credit Card', 'Boston');
+SELECT * FROM payment;
+#find the total payment according to each payment method
+
+SELECT mode, COUNT(customer)
+FROM payment
+GROUP BY mode;
