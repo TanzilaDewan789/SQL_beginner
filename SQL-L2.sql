@@ -169,10 +169,67 @@ HAVING MAX(marks) >90;
 #6.ORDER BY columns_name ASC/ DESC; (Specific condition on colummn)
 #[SELECT FROM WHERE ? GHO]
 
-#EXAMPLE
+#EXAMPLE: group city name where student got 93 or more then 93, show city descending order.
 SELECT city
 FROM student
 WHERE grade = 'A'
 GROUP BY city 
 HAVING MAX(marks) >=90
 ORDER BY city DESC;
+
+#UPDATE ( to update existing rows)
+#UPDATE table_name
+#SET column_name1 = new_ value1, column_name2 = new_ value2
+#WHERE condition (on rows)
+#SELECT * FROM table_name; (to show the update in table)
+
+# To on the update stytem variable, 0 = safe mode OFF, 1 = safe mode ON
+SET SQL_SAFE_UPDATES = 0;
+
+SELECT * FROM student;
+
+#update student grade A to O 
+UPDATE student
+SET grade = "O"
+WHERE grade = 'A';
+SELECT * FROM student;
+
+#update student grade O to a 
+UPDATE student 
+SET grade = 'a'
+WHERE grade = 'O';
+
+#update enam marks from 12 to 82
+UPDATE student 
+SET marks = 82
+WHERE name = 'enam';
+
+#update grade = 'b', who got marks between 80 and 90;
+UPDATE student
+SET grade ='b'
+WHERE marks BETWEEN 80 AND 90;
+
+#Add 1 more marks to all students
+UPDATE student 
+SET marks = marks + 1;
+SELECT * FROM student;
+
+# update 105 rollno student marks to 12
+UPDATE student
+SET marks = 12
+WHERE rollno = 105;
+
+#update student grade to f who got less then 33
+UPDATE student
+SET grade = 'f'
+WHERE marks BETWEEN 0 AND 33;
+
+
+#DELETE (TO delete existing rows)
+#DELETE FROM table_name
+#WHERE condition on rows
+
+#remove those who got f grade
+DELETE FROM student
+WHERE grade = 'f'; # WHERE marks < 33;
+SELECT * FROM student;
