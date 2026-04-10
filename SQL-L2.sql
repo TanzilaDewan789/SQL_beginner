@@ -151,3 +151,28 @@ SELECT * FROM payment;
 SELECT mode, COUNT(customer)
 FROM payment
 GROUP BY mode;
+
+#HAVING- Use to filter the GROUP BY query based on aggregated function
+#Using student table
+
+SELECT COUNT(name), city
+FROM student
+GROUP BY city
+HAVING MAX(marks) >90;
+
+#General order
+#1.SELECT columns_name
+#2.FROM table_name
+#3.WHERE condition on rows 
+#4.GROUP BY columns_name
+#5.HAVING condition on columns (which is in group by)
+#6.ORDER BY columns_name ASC/ DESC; (Specific condition on colummn)
+#[SELECT FROM WHERE ? GHO]
+
+#EXAMPLE
+SELECT city
+FROM student
+WHERE grade = 'A'
+GROUP BY city 
+HAVING MAX(marks) >=90
+ORDER BY city DESC;
