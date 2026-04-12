@@ -65,3 +65,38 @@ SELECT * FROM new_dept;
 SELECT * FROM  new_teacher ;
 
 DELETE FROM new_dept WHERE id = 200;
+
+#ALTER -
+#1. ADD COLUMN 2.DROP COLUMN 3. REMANE TO 4. CHANGE COLUMN 5.MODIFY COLUMN 6.TRUNCATE
+
+
+#ADD COLUMN- (to add new column in table)
+ALTER TABLE student
+ADD COLUMN age INT NOT NULL DEFAULT 19;
+
+SELECT * FROM student;
+
+#DROP COLUMN- ( to drop the full column)
+ALTER TABLE student
+DROP COLUMN age;
+
+#REMANE TO-( change the table name)
+ALTER TABLE student
+RENAME TO new_stu;
+
+ALTER TABLE new_stu
+RENAME TO student;
+
+#CHANGE COLUMN-(change the name of the column)
+ALTER TABLE student
+CHANGE COLUMN age new_age INT NOT NULL;
+
+#MODIFY COLUMN - (change only datatype and constrain)
+ALTER TABLE student
+MODIFY COLUMN new_age FLOAT;
+
+#TRUNCATE - Only showed the column name removed the table data
+TRUNCATE TABLE student;
+
+DROP TABLE student;
+
