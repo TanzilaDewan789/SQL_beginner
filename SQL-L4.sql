@@ -38,3 +38,24 @@ ON tabA.id = tabB.id;
 SELECT * FROM student1 as tabA
 LEFT JOIN course as tabB
 on tabA.id = tabB.id;
+
+#RIGHT JOIN- return all records from the right table, and match records from left table
+SELECT * 
+FROM student1 AS tabA
+RIGHT JOIN course AS tabB
+ON tabA.id = tabB.id;
+
+#full outer join- returns all records from both tables, matching rows where possible, and NULL where there is no match.
+#LEFT JOIN -- UNION -- RIGHT JOIN
+
+SELECT * 
+FROM student1 AS tabA
+LEFT JOIN course AS tabB
+ON tabA.id = tabB.id
+
+UNION
+
+SELECT * 
+FROM student1 AS tabA
+RIGHT JOIN course AS tabB
+ON tabA.id = tabB.id;
