@@ -45,7 +45,7 @@ FROM student1 AS tabA
 RIGHT JOIN course AS tabB
 ON tabA.id = tabB.id;
 
-#full outer join- returns all records from both tables, matching rows where possible, and NULL where there is no match.
+#2.Full outer join- returns all records from both tables, matching rows where possible, and NULL where there is no match.
 #LEFT JOIN -- UNION -- RIGHT JOIN
 
 SELECT * 
@@ -59,3 +59,61 @@ SELECT *
 FROM student1 AS tabA
 RIGHT JOIN course AS tabB
 ON tabA.id = tabB.id;
+
+
+
+#3. Exclusive join/ Anti join
+#Left exclusive join
+
+SELECT * 
+FROM student1 as tabA
+LEFT JOIN course as tabB
+ON tabA.id = tabB.id
+WHERE tabB.id IS NULL;#Show table A but where table b match its show null
+
+#Right exclusive join
+SELECT * 
+FROM student1 as tabA
+RIGHT JOIN course as tabB
+ON tabA.id = tabB.id
+WHERE tabA.id is NULL;
+
+#Full exclusive join = (A ∪ B) − (A ∩ B)
+SELECT *
+FROM student1 as taba
+LEFT JOIN course as tabb
+on taba.id = tabb.id
+WHERE tabb.id is null
+
+UNION 
+
+SELECT *
+FROM student1 as taba
+RIGHT JOIN course as tabb
+on taba.id = tabb.id
+WHERE taba.id is null;
+
+#Self join- a regular join  but the table is joined with self
+CREATE TABLE emp_manager (
+id INT PRIMARY KEY,
+name VARCHAR(50),
+manager_id INT 
+);
+
+INSERT INTO emp_manager (id, name, manager_id)
+VALUES
+(101,'adam',103),
+(102,'bob',104),
+(103,'casey',null),
+(104,'donald',103);
+
+SELECT * FROM emp_manager;
+
+SELECT * FROM emp_manager AS A
+JOIN emp_manager AS B 
+ON A.id = B.manager_id;
+
+SELECT A.name AS manager_name, B.name
+FROM emp_manager AS A
+JOIN emp_manager AS B 
+ON A.id = B.manager_id;
