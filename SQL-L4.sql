@@ -117,3 +117,13 @@ SELECT A.name AS manager_name, B.name
 FROM emp_manager AS A
 JOIN emp_manager AS B 
 ON A.id = B.manager_id;
+
+#Unique
+SELECT NAME FROM  emp_manager 
+UNION
+SELECT NAME FROM  emp_manager;
+
+#Unique
+SELECT NAME FROM  emp_manager 
+UNION ALL
+SELECT NAME FROM  emp_manager;
